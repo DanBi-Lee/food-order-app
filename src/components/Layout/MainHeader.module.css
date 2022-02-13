@@ -1,0 +1,28 @@
+.headBox {
+    height: 0.8rem;
+    background-color: brown;
+    color: #fff;
+}
+.headBox .innerBox {
+    max-width: 9.8rem;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.badge {
+    display: flex;
+    align-items: center;
+    padding: 0.1rem 0.2rem;
+    background-color: rgba(0,0,0,0.6);
+    border-radius: 0.05rem;
+}
+
+.badge .count {
+    margin-left: 0.1rem;
+    padding: 0 0.1rem;
+    background-color: brown;
+    border-radius: 0.5rem;
+}
