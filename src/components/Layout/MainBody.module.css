@@ -1,0 +1,13 @@
+.container {
+    max-width: 9.8rem;
+    margin: 0 auto;
+    padding-top: 0.6rem;
+}
+.title {
+    max-width: 4rem;
+    background-color: #999;
+    margin: 0 auto;
+    padding: 0.2rem;
+    border-radius: 0.08rem;
+    text-align: center;
+}

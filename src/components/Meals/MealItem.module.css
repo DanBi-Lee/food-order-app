@@ -1,0 +1,28 @@
+.item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.2rem;
+}
+
+.item .title {
+    font-weight: 800;
+}
+.item .desc {
+    color: #999;
+}
+.item .price {
+    color: brown;
+}
+
+.paymentInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.paymentInfo input[type="number"] {
+    width: 0.4rem;
+    margin-left: 0.1rem;
+    padding: 0 0.04rem;
+}

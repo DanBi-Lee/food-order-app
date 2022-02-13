@@ -1,0 +1,10 @@
+.list {
+    background-color: #fff;
+    margin-top: 0.2rem;
+    border-radius: 0.1rem;
+    padding: 0 0.2rem;
+}
+
+.list > li + li {
+    border-top: 1px solid #eee;
+}
