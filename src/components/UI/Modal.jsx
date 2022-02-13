@@ -5,8 +5,7 @@ function Modal({children}) {
         <div className={style.modalWrap}>
             <div className={style.modalOverlay}></div>
             <section className={style.modalcontentBox}>
-                {/* {children} */}
-                test
+                {children}
             </section>
         </div>
     );
