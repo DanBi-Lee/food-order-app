@@ -2,7 +2,7 @@ import Button from "../UI/Button";
 import style from "./Cart.module.css";
 import CartList from "./CartList";
 
-function Cart() {
+function Cart({onClose}) {
     return (
         <>
             <CartList />
@@ -12,7 +12,7 @@ function Cart() {
                     <p>0원</p>
                 </div>
                 <div className={style.action}>
-                    <Button text="Close" onClick={() => {}}/>
+                    <Button text="Close" onClick={onClose}/>
                     <Button text="Order" onClick={() => {}}/>
                 </div>
             </div>

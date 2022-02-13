@@ -1,12 +1,12 @@
 import CartButton from '../Cart/CartButton';
 import style from './MainHeader.module.css';
 
-function MainHeader() {
+function MainHeader({onOpen}) {
     return (
         <header className={style.headBox}>
             <div className={style.innerBox}>
                 <h1>ReactMeals</h1>
-                <CartButton />
+                <CartButton onOpen={onOpen} />
             </div>
         </header>
     );
