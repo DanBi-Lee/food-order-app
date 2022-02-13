@@ -1,25 +1,26 @@
-import { useState } from "react";
+import {useState} from "react";
 import Cart from "./components/Cart/Cart";
 import MainBody from "./components/Layout/MainBody";
 import MainHeader from "./components/Layout/MainHeader";
 import Modal from "./components/UI/Modal";
 
 function App() {
-  const [isModal, setIsModal] = useState(false);
-  const closeHandler = () => {
-    setIsModal(false);
-  }
-  const openHandler = () => {
-    setIsModal(true);
-  }
+    const [isModal,
+        setIsModal] = useState(false);
+    const closeHandler = () => {
+        setIsModal(false);
+    }
+    const openHandler = () => {
+        setIsModal(true);
+    }
 
-  return (
-    <>
-      <MainHeader onOpen={openHandler} />
-      <MainBody />
+    return ( 
+    <> 
+      <MainHeader onOpen={openHandler}/> 
+      < MainBody />
       <Modal isModal={isModal} onClose={closeHandler}>
-        <Cart  onClose={closeHandler} />
-      </Modal>
+        <Cart onClose={closeHandler}/>
+      </Modal> 
     </>
   );
 }

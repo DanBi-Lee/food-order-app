@@ -1,17 +1,18 @@
 import style from './CartItem.module.css';
 
-function CartItem(){
+function CartItem({cartData}){
+    const {id, title, price, count} = cartData;
     return (
-        <li className={style.item}>
+        <li className={style.item} data-id={id}>
             <div className={style.info}>
                 <p className={style.title}>
-                    초밥
+                    {title}
                 </p>
                 <p className={style.price}>
-                    가격
+                    {`${price.toLocaleString('ko-KR')}원`}
                 </p>
                 <p className={style.count}>
-                    갯수
+                    {`x${count}`}
                 </p>
             </div>
             <div className={style.action}>

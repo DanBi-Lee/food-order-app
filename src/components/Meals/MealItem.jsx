@@ -1,16 +1,31 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { CartDispatchContext } from "../../store/CartContext";
 import Button from "../UI/Button";
 import style from "./MealItem.module.css";
 
 function MealItem({mealData}) {
+    const cartDispatch = useContext(CartDispatchContext);
     const {id, title, desc, price} = mealData;
     const [count, setCount] = useState(0);
     const changeCountHandler = (e) => {
-        console.log(e.target.value);
         setCount(e.target.value);
     };
     const addCartHandler = () => {
-        console.log("카트 추가");
+        const cartItem = {
+            id,
+            title,
+            desc,
+            price,
+            count: count*1
+        }
+        if(count<=0){
+            alert('1개 이상 입력해야 합니다');
+            return;
+        }
+        cartDispatch({
+            type: 'ADD_CART',
+            payload: cartItem
+        });
     }
     
     return (

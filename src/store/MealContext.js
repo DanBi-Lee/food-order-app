@@ -24,7 +24,7 @@ const DUMMY_DATA = [
 ];
 
 export const MealContextProvider = ({ children }) => {
-  const [data, setData] = useState(DUMMY_DATA);
+  const [data] = useState(DUMMY_DATA);
 
   return <MealContext.Provider value={data}>{children}</MealContext.Provider>;
 };
