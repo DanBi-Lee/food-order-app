@@ -1,6 +1,22 @@
+import { useContext } from 'react';
+import { CartDispatchContext } from '../../store/CartContext';
 import style from './CartItem.module.css';
 
 function CartItem({cartData}){
+    const cartDispatch = useContext(CartDispatchContext);
+    const increaseCountHandler = (id) =>{
+        cartDispatch({
+            type: "INCREASE_COUNT",
+            payload: id
+        });
+    };
+    const decreaseCountHandler = (id) =>{
+        cartDispatch({
+            type: "DECREASE_COUNT",
+            payload: id
+        });
+    };
+
     const {id, title, price, count} = cartData;
     return (
         <li className={style.item} data-id={id}>
@@ -16,8 +32,8 @@ function CartItem({cartData}){
                 </p>
             </div>
             <div className={style.action}>
-                <button>-</button>
-                <button>+</button>
+                <button onClick={()=>decreaseCountHandler(id)}>-</button>
+                <button onClick={()=>increaseCountHandler(id)}>+</button>
             </div>
         </li>
     );

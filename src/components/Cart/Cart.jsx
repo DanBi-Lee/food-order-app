@@ -31,7 +31,7 @@ function Cart({onClose}) {
                 </div>
                 <div className={style.action}>
                     <Button text="Close" onClick={onClose}/>
-                    <Button text="Order" onClick={() => {}}/>
+                    <Button text="Order" onClick={() => {alert('주문을 성공했습니다.'); onClose();}}/>
                 </div>
             </div>
         </>
