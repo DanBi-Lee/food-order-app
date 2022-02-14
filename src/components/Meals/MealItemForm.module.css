@@ -1,0 +1,11 @@
+.paymentInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.paymentInfo input[type="number"] {
+    width: 0.4rem;
+    margin-left: 0.1rem;
+    padding: 0 0.04rem;
+}
