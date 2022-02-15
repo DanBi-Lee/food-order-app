@@ -1,19 +1,29 @@
+import { createPortal } from 'react-dom';
 import style from './Modal.module.css';
 
-function Modal({children, isModal, onClose}) {
-    if(isModal){
-        return (
-            <div className={style.modalWrap}>
-                <div className={style.modalOverlay} onClick={onClose} ></div>
-                <section className={style.modalcontentBox}>
-                    {children}
-                </section>
-            </div>
-        );
-    }else {
-        return '';
-    }
+function Backdrop({onClose}) {
+    return <div className={style.backdrop} onClick={onClose}></div>
+}
 
+function ModalOverlay({children}) {
+    return (
+        <div className={style.modal}>
+            <div className={style.content}>
+                {children}
+            </div>
+        </div>
+    );
+}
+
+const portalElement = document.getElementById("overlays");
+
+function Modal({children, onClose}) {
+    return (
+        <>
+            { createPortal(<Backdrop onClose={onClose} />, portalElement) }
+            { createPortal(<ModalOverlay>{children}</ModalOverlay>, portalElement) }
+        </>
+    );
 }
 
 export default Modal;

@@ -6,9 +6,9 @@
     justify-content: space-between;
 }
 
-.action {
-    float: right;
+.action{
+    text-align: right;
 }
-.action button +button {
+.action button + button {
     margin-left: 0.1rem;
 }

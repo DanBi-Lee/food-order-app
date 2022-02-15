@@ -18,9 +18,15 @@ function App() {
     <> 
       <MainHeader onOpen={openHandler}/> 
       < MainBody />
-      <Modal isModal={isModal} onClose={closeHandler}>
-        <Cart onClose={closeHandler}/>
-      </Modal> 
+      {
+        isModal && 
+        (
+        <Modal onClose={closeHandler}>
+          <Cart onClose={closeHandler}/>
+        </Modal>
+         )
+      }
+      
     </>
   );
 }
