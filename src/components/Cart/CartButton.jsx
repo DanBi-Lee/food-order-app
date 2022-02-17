@@ -13,7 +13,7 @@ function CartButton({onOpen}){
                 <FontAwesomeIcon icon={faCartShopping}/>
                  <span> Your Cart</span>
             </div>
-            <div className={style.count}>{cartState.cartLength}</div>
+            <div className={style.count}>{cartState.totalAmount}</div>
         </button>
     );
 }

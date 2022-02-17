@@ -2,17 +2,17 @@ import { createContext, useReducer } from "react";
 
 export const CartStateContext = createContext({
   cartList: [],
-  cartLength: 0,
+  totalAmount: 0,
 });
 export const CartDispatchContext = createContext();
 
-const reducer = (state, action) => {
+export const reducer = (state, action) => {
   switch (action.type) {
     case "ADD_CART":
       return {
         ...state,
         cartList: [...state.cartList, action.payload],
-        cartLength: state.cartLength + action.payload.count,
+        totalAmount: state.totalAmount + action.payload.count,
       };
     case "INCREASE_COUNT":
       return {
@@ -25,6 +25,7 @@ const reducer = (state, action) => {
               }
             : item
         ),
+        totalAmount: state.totalAmount + 1,
       };
     case "DECREASE_COUNT":
       return {
@@ -37,23 +38,14 @@ const reducer = (state, action) => {
               }
             : item
         ),
+        totalAmount: state.totalAmount - 1,
       };
     default:
       throw new Error("유효하지 않은 action type입니다.");
   }
 };
-const initialState = {
-  cartList: [],
-  cartLength: 0,
-};
 
-export const CartProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(reducer, initialState);
-  return (
-    <CartStateContext.Provider value={state}>
-      <CartDispatchContext.Provider value={dispatch}>
-        {children}
-      </CartDispatchContext.Provider>
-    </CartStateContext.Provider>
-  );
+export const initialState = {
+  cartList: [],
+  totalAmount: 0,
 };
