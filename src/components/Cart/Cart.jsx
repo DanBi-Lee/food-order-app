@@ -17,7 +17,7 @@ function Cart({onClose}) {
 
 
     let totalPrice = 0;
-    cartState.cartList.forEach(item => {
+    cartState.items.forEach(item => {
         totalPrice += item.price*item.count;
     });
 

@@ -3,21 +3,16 @@ import { CartDispatchContext } from '../../store/CartContext';
 import style from './CartItem.module.css';
 
 function CartItem({cartData}){
-    const cartDispatch = useContext(CartDispatchContext);
+    const cartFunction = useContext(CartDispatchContext);
     const increaseCountHandler = (id) =>{
-        cartDispatch({
-            type: "INCREASE_COUNT",
-            payload: id
-        });
+        cartFunction.addItemToCartHandler(id)
     };
     const decreaseCountHandler = (id) =>{
-        cartDispatch({
-            type: "DECREASE_COUNT",
-            payload: id
-        });
+        cartFunction.removeItemToCartHandler(id);
     };
 
     const {id, title, price, count} = cartData;
+    console.log(cartData);
     return (
         <li className={style.item} data-id={id}>
             <div className={style.info}>
@@ -25,7 +20,7 @@ function CartItem({cartData}){
                     {title}
                 </p>
                 <p className={style.price}>
-                    {`${price.toLocaleString('ko-KR')}원`}
+                    {`${price}원`}
                 </p>
                 <p className={style.count}>
                     {`x${count}`}

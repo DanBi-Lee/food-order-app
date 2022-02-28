@@ -5,7 +5,7 @@ import Input from "../UI/Input";
 import style from "./MealItemForm.module.css";
 
 function MealItemForm({mealData}) {
-    const cartDispatch = useContext(CartDispatchContext);
+    const cartHandler = useContext(CartDispatchContext);
     const {id, title, desc, price} = mealData;
     const [count,
         setCount] = useState(0);
@@ -25,7 +25,7 @@ function MealItemForm({mealData}) {
             alert('1개 이상 입력해야 합니다');
             return;
         }
-        cartDispatch({type: 'ADD_CART', payload: cartItem});
+        cartHandler.addItemToCartHandler(cartItem);
     }
     return (
         <form className={style.paymentInfo}>

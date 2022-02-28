@@ -8,7 +8,7 @@ function CartList() {
     return (
         <ul>
             {
-                cartState.cartList.map(item => <CartItem key={item.id} cartData={item} />)
+                cartState.items.map(item => <CartItem key={item.id} cartData={item} />)
             }
         </ul>
     )
