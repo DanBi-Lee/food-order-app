@@ -4,15 +4,15 @@ import style from './CartItem.module.css';
 
 function CartItem({cartData}){
     const cartFunction = useContext(CartDispatchContext);
-    const increaseCountHandler = (id) =>{
-        cartFunction.addItemToCartHandler(id)
+    const increaseCountHandler = (item) =>{
+        const _item = {...item, count:1};
+        cartFunction.addItemToCartHandler(_item);
     };
     const decreaseCountHandler = (id) =>{
         cartFunction.removeItemToCartHandler(id);
     };
 
     const {id, title, price, count} = cartData;
-    console.log(cartData);
     return (
         <li className={style.item} data-id={id}>
             <div className={style.info}>
@@ -28,7 +28,7 @@ function CartItem({cartData}){
             </div>
             <div className={style.action}>
                 <button onClick={()=>decreaseCountHandler(id)}>-</button>
-                <button onClick={()=>increaseCountHandler(id)}>+</button>
+                <button onClick={()=>increaseCountHandler(cartData)}>+</button>
             </div>
         </li>
     );

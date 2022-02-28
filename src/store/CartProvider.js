@@ -29,7 +29,29 @@ const reducer = (state, action) => {
         totalAmount: state.totalAmount + action.item.count,
       };
     case "REMOVE_CART":
-      return { ...state };
+      const existingCartItemIndexforRemove = state.items.findIndex(
+        (item) => item.id === action.id
+      );
+      const exisingItemforRemove = state.items[existingCartItemIndexforRemove];
+      const updatedTotalAmount = state.totalAmount - 1;
+      let updatedItemsforRemove;
+      if (exisingItemforRemove.count === 1) {
+        updatedItemsforRemove = state.items.filter(
+          (item) => item.id !== action.id
+        );
+      } else {
+        const updatedItemforRemove = {
+          ...exisingItemforRemove,
+          count: exisingItemforRemove.count - 1,
+        };
+        updatedItemsforRemove = [...state.items];
+        updatedItemsforRemove[existingCartItemIndexforRemove] =
+          updatedItemforRemove;
+      }
+      return {
+        items: updatedItemsforRemove,
+        totalAmount: updatedTotalAmount,
+      };
     case "INCREASE_COUNT":
       return {
         ...state,
