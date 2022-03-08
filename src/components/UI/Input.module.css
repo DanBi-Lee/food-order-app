@@ -1,5 +1,20 @@
+.input {
+    display: flex;
+    flex-wrap: wrap;
+}
 .input input {
     width: 0.4rem;
+    flex-grow: 1;
     margin-left: 0.1rem;
     padding: 0 0.04rem;
+}
+.input.error input{
+    border-color: red;
+}
+.errorMessage {
+    width: 100%;
+    margin-top: 0.05rem;
+    color: red;
+    text-align: right;
+    font-size: 0.14rem;
 }

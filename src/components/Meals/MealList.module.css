@@ -8,3 +8,18 @@
 .list > li + li {
     border-top: 1px solid #eee;
 }
+
+.loadingBox,
+.errorBox,
+.emptyBox {
+    background-color: #fff;
+    margin-top: 0.2rem;
+    border-radius: 0.1rem;
+    padding: 0.2rem;
+    text-align: center;
+}
+
+.errorBox {
+    color: red;
+}
+
