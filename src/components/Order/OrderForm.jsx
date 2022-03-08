@@ -34,8 +34,7 @@ function OrderForm({setOrderHandler, orderItem}) {
                 }
                 const submitOrder = async()=>{
                     try {
-                        const response = await postOrder(JSON.stringify(order));
-                        console.log(response);
+                        await postOrder(JSON.stringify(order));
                         alert("주문에 성공했습니다.")
                     }catch(e){
                         alert(e);
@@ -53,10 +52,10 @@ function OrderForm({setOrderHandler, orderItem}) {
         <>
             <h2 className={style.title}>주문서</h2>
             <form className={style.form}>
-                <Input label="주문자명" input={{id: "name", name: "name", type :"text", value: name.value, onChange: name.onChange, onBlur: name.onBlur }} />
-                <Input label="전화번호" input={{id: "tel", name: "tel", type :"tel", value: tel.value, onChange: tel.onChange, onBlur: tel.onBlur }} />
-                <Input label="이메일" input={{id: "email", name: "email", type :"email", valule: email.value, onChange: email.onChange, onBlur: email.onBlur }} />
-                <Input label="배송 주소" input={{id: "address", name: "address", type :"text", value: address.value, onChange: address.onChange, onBlur: email.onBlur }} />
+                <Input label="주문자명" input={{id: "name", name: "name", type :"text", value: name.value, onChange: name.onChange, onBlur: name.onBlur }} hasError={name.hasError} />
+                <Input label="전화번호" input={{id: "tel", name: "tel", type :"tel", value: tel.value, onChange: tel.onChange, onBlur: tel.onBlur }} hasError={tel.hasError} />
+                <Input label="이메일" input={{id: "email", name: "email", type :"email", valule: email.value, onChange: email.onChange, onBlur: email.onBlur }} hasError={email.hasError} />
+                <Input label="배송 주소" input={{id: "address", name: "address", type :"text", value: address.value, onChange: address.onChange, onBlur: address.onBlur }} hasError={address.hasError} />
                 <div>
                     <label htmlFor="orderMethod">
                         결제 방법
